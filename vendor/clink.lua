@@ -212,6 +212,7 @@ local function get_svn_branch(svn_dir)
         local m = line:match("^Relative URL:")
         if m then
             file:close()
+            line = line:gsub("%%20", " ")
             return line:sub(line:find("/")+1,line:len())
         end
     end
